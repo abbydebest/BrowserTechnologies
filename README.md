@@ -11,3 +11,9 @@ The inherantence tax report is a extremely complicated process the user has to g
 ## Moodboard UX/UI
 
 ## Sketches
+
+## Feedback
+
+* Mag grappig en gebruiksvriendelijk tegelijk zijn
+* Valideren voor submit met required
+* 
