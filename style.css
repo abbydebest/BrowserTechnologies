@@ -1,0 +1,105 @@
+/* ///////////////////// */
+/* 🎞️🎞️🎞️ FONTFACES 🎞️🎞️🎞️ */
+/* ///////////////////// */
+
+@font-face {
+    font-family: "NS Sans Regular";
+    src: url(./fonts/NSSans-Regular.woff2);
+}
+
+@font-face {
+    font-family: "NS Sans Bold";
+    src: url(./fonts/NSSans-Bold-2882003.woff2);
+}
+/* SOURCE: https://type-department.com/products/clayhttps://www.ns.nl/platform/resources.html */
+
+/* ////////////////////// */
+/* 🍙🍙🍙 CSS REMEDY 🍙🍙🍙 */
+/* ////////////////////// */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+:root {
+        /* No margin & padding */
+        --no-margin: 0;
+
+        /* Primary colours */
+        --yellow: #FFC917;
+        --blue: #003082;
+        --light-blue: #0063D3;
+        --white: #ffffff;
+
+        /* Shades of grey */
+        --grey: #070721;
+
+        /* Feedback colours */
+        --error-red: #DB0029;
+        --succes-green: #009A42;
+
+        /* Link & hover colours */
+        --text-link-light-blue: #0079D3;
+        --hover-blue: #005CA0;
+        --hover-yellow: #FFB519;
+    
+        /* Fonts */
+        --NS-sans-regular: "NS Sans Regular", Arial, Helvetica, sans-serif;
+        --NS-sans-bold: "NS Sans Bold", Arial, Helvetica, sans-serif;
+    
+        /* Font sizes */
+        --text-size: 1em;
+        --small-text: 0.875em;
+}
+
+/* /////////////////////////// */
+/* 🪐🪐🪐 TEXT FORMATTING 🪐🪐🪐 */
+/* /////////////////////////// */
+/* Font sizing nog aanpassen voor echt kleine schermen? */
+
+h1 {
+    color: var(--blue);
+    font-size: clamp(1.75rem, 1.1215rem + 3.5912vw, 5rem);;
+
+    font-family: var(--NS-sans-bold);
+}
+
+h2 {
+    color: var(--blue);
+    font-size: clamp(1.75rem, 1.625rem + 0.3333vw, 1.875rem);
+}
+
+h3 {
+    color: var(--blue);
+    font-size: clamp(1.25rem, 1.2017rem + 0.2762vw, 1.5rem);
+}
+
+p {
+    color: var(--grey);
+    font-size: var(--text-size);
+}
+
+small {
+    color: var(--grey);
+    font-size: var(--small-text);
+}
+
+/* 🪐 TEXT FORMATTING RESPONSIVE 🪐 */
+
+/* //////////////// */
+/* 🍸🍸🍸 BODY 🍸🍸🍸 */
+/* //////////////// */
+
+body {
+    height: 100dvh;
+    width: 100dvw;
+
+    font-family: var(--NS-sans-regular);
+}
+
+/* ////////////////// */
+/* 🤠🤠🤠 HEADER 🤠🤠🤠 */
+/* ////////////////// */
