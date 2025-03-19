@@ -86,10 +86,18 @@ h3 {
     font-size: clamp(1.25rem, 1.2017rem + 0.2762vw, 1.5rem);
 }
 
+h3 + h3 {
+    font-size: 1rem;
+}
+
 p {
     color: var(--grey);
     font-size: var(--text-size);
 }
+
+/* legend {
+
+} */
 
 small {
     color: var(--grey);
@@ -162,13 +170,29 @@ fieldset {
     border: none;
     display: flex;
     flex-direction: column;
+    gap: 2rem;
+}
+
+.group-inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 14rem;
     gap: 1rem;
 }
 
 label {
     display: flex;
-    gap: 1rem;
+    gap: .5rem;
     align-items: center;
+    width: fit-content;
 }
 
 /* ////////////////// */
@@ -189,8 +213,12 @@ input[type="date"] {
 
     background-color: #fff;
     color: #003082;
+    font-family: var(--NS-sans-bold);
     font-weight: 700;
+
+    width: fit-content;
     height: 2.8125rem;
+
     line-height: 1.5625rem;
     padding-left: .9375rem;
     padding-right: .9375rem;
@@ -225,6 +253,7 @@ input[type="date"] {
 
 label::before {
     content: "*";
+    color: var(--error-red);
     order: 2;
 }
 
@@ -301,11 +330,17 @@ input[type="radio"] {
 
     &:checked::after {
         transform: scale(1);
+
     }
 
-    &:checked label {
-        color: var(--blue);
+    /* If radio is checked change color of another element */
+    /* &:checked + .radio-as-button {
+        background-color: var(--blue);
     }
+
+    &:checked .radio-as-button .situation {
+        color: var(--blue);
+    } */
 
     /* 🔗 SOURCE: https://www.ns.nl/platform/objects/form-radiobutton.html */
 }
@@ -424,4 +459,21 @@ button {
     line-height: 1.5625rem;
 
     transition: box-shadow .15s ease-in-out;
+
+    &:hover {
+        box-shadow: inset 0 -3.125rem 0 #004ba0;
+    }
+
+    &:focus {
+        outline: thin dotted #0063d3;
+        outline-offset: 0;
+    }
+}
+
+/* /////////////////// */
+/* 📦📦📦 STEP 3B 📦📦📦 */
+/* /////////////////// */
+
+fieldset.verkrijger {
+    display: flex;
 }

@@ -23,10 +23,10 @@
     <main>
     <form action="">
         <fieldset class="step-3-for-who">
-            <legend>3 Wat is uw rol en voor wie doet u aangifte?</legend>
+            <legend><h3>3 Wat is uw rol en voor wie doet u aangifte?</h3></legend>
             
             <fieldset class="step-3a-executeur">
-                <legend>3a Is er een executeur aangewezen?</legend>
+                <legend><h3>3a Is er een executeur aangewezen?</h3></legend>
                 <!-- <legend>3a Geef aan welke situatie/rol voor u geld</legend> -->
 
                 <p>Er is een executeur aangewezen</p>
@@ -38,7 +38,7 @@
                     <p class="explanation">Als executeur moet u aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers). Lees de toelichting bij vraag 3a.</p>
                         
                     <label class="amount-label" for="amount-of-people">Geef aan voor hoeveel verkrijgers u aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.</label>
-                    <input type="number" name="aantal-verkrijgers" id="amount-of-people">
+                    <input type="number" id="amount-of-people" name="aantal-verkrijgers">
                 </fieldset>
                 
                 <p>Er is geen executeur aangewezen</p>
@@ -52,18 +52,17 @@
                     <p class="explanation">U bent gemachtigd om aangifte te doen voor meerdere personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).</p>
 
                     <label class="amount-label" for="amount-of-people-gemachtigde">Geef aan voor hoeveel verkrijgers u aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.</label>
-                    <input type="number" name="aantal-verkrijgers-gemachtigde" id="amount-of-people-gemachtigde">
+                    <input type="number" id="amount-of-people-gemachtigde" name="aantal-verkrijgers-gemachtigde">
+                    <label><input type="checkbox" name="no-heir">Ik ben geen erfgenaam/verkrijger</label>
                 </fieldset>
-                
-                    <label><input type="checkbox" name="gemachtigde-niet-erfgenaam">Ik ben geen erfgenaam/verkrijger</label>
-                
+                                
                 <fieldset class="radio-as-button">
                     <label class="situation" for="together">Met andere erfgenamen</label>
                     <input type="radio" id="together" name="taak-keuze" value="geen van beiden" required>
                     <p class="explanation">U bent erfgenaam en doet met andere erfgenamen aangifte en anderen alleen voor zichzelf</p>
                     
                     <label class="amount-label" for="amount-verkrijgers">Geef aan met/voor hoeveel verkrijgers u samen aangifte doet.</label>
-                    <input type="number" name="aantal-verkrijgers-erfgenaam" id="amount-verkrijgers">
+                    <input type="number" id="amount-verkrijgers" name="aantal-verkrijgers-erfgenaam">
                 </fieldset>
 
                 <fieldset class="radio-as-button">
@@ -75,7 +74,7 @@
             </fieldset>
 
             <fieldset class="step-3b-who-not">
-                <legend>3b Voor wie doet u geen aangifte?</legend>
+                <legend><h3>3b Voor wie doet u geen aangifte?</h3></legend>
                 <p>Niet van toepassing als:</p>
                 <ol>
                     <li>U executeur bent</li>
@@ -89,13 +88,43 @@
                         Gaat het om een instelling? Vul dan de naam van de instelling in bij ‘achternaam’.
                         Het invullen van een bsn is niet verplicht, maar wel handig voor ons.</label>
                 </fieldset>
-                <fieldset>
+
+                <fieldset class="verkrijger">
                     <legend>Verkrijger 1</legend>
+                    <div class="input-group">
+                        <label for="bsn">Burgerservicenummer/RSIN</label>
+                        <input type="text" id="bsn" name="bsn" placeholder="012345678" pattern="[0-9]{9}" maxlength="9" size="9" title="Vul een BSN met 9 cijfers in" required>
+                    </div>
+
+                    <section class="group-inputs">
+                        <div class="input-group">
+                            <label for="first-letter">Voorletter(s)</label>
+                            <input type="text" id="first-letter" name="first-letter" placeholder="A" pattern="[a-zA-Z]{1,}" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="prefix">Tussenvoegsel(s)</label>
+                            <input type="text" id="prefix" name="prefix" placeholder="de" pattern="[a-zA-Z]{2,}" maxlength="5" size="5" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="surname">Achternaam</label>
+                            <input type="text" id="surname" name="surname" placeholder="Best" pattern="[a-zA-Z]{1,}" required>
+                        </div>
+                    </section>
+
+                    <fieldset>
+                        <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele vermogen?</legend>
+                        
+                        <label class="" for="not-all-assets"><input type="radio" id="not-all-assets" name="assets" value="Nee, deze krijgt niet het hele vermogen" required>Nee</label>
+                        <label class="" for="all-assets"><input type="radio" id="all-assets" name="assets" value="Ja, deze krijgt het hele vermogen" required>Ja</label>
+                    </fieldset>
+
                 </fieldset>
             </fieldset>
 
             <fieldset>
-                <legend>3c Naar wie wilt u dat wij de aanslag erfbelasting sturen?</legend>
+                <legend><h3>3c Naar wie wilt u dat wij de aanslag erfbelasting sturen?</h3></legend>
                 <label><input type="radio" name="receipient-choice" value="Stuur naar iedere verkrijger">Stuur naar iedere verkrijger van (een deel van) de erfenis een eigen belastingaanslag.</label>
                 <label><input type="radio" name="receipient-choice" value="Stuur naar iedere verkrijger">Stuur de belastingaanslag(en) naar de executeur of naar de erfgenaam die ook namens andere personen en/of instellingen
                     die iets krijgen uit de nalatenschap (verkrijgers) aangifte heeft gedaan; dit mag ook de gemachtigde zijn.
@@ -103,20 +132,83 @@
             </fieldset>
 
             <fieldset>
-                <legend>3d Ondertekening door executeur of gemachtigde</legend>
+                <legend><h3>3d Ondertekening door executeur of gemachtigde</h3></legend>
                 <p>Bent u executeur of gemachtigde? Vul uw gegevens hieronder in en onderteken de aangifte voor de verkrijgers waarvoor u aangifte doet.</p>
-                
-                <label for="bsn">Burgerservicenummer/RSIN</label>
-                <input id="bsn" type="text" placeholder="012345678" pattern="[0-9]{9}" title="Vul een BSN met 9 getallen in" required>
 
-                <label class="non-required">Protocolnummer (als de executeur ook notaris is)<input type="text" placeholder="456" pattern="[0-9]{6}" title="Vul een protocol nummer met maximaal 6 getallen"></label>
-                <label class="non-required">Beconnummer van de adviseur<input type="text" placeholder="123456" pattern="[0-9]{6}"></label>
-                <label>Voorletter(s), tussenvoegsel(s) en achternaam<input type="text" placeholder="A" pattern="[a-zA-Z]" required><input type="text" placeholder="de" pattern="[a-zA-Z]" required><input type="text" placeholder="Best" pattern="[a-zA-Z]" required></label>
-                <label class="non-required">Naam instelling (bijvoorbeeld een notariskantoor)<input type="text"></label>
-                <label>Straat, huisnummer en toevoeging<input type="text" placeholder="Wibautstraat" pattern="[a-zA-Z]" required><input type="text" placeholder="11" pattern="[0-9]" required><input type="text" placeholder="B" pattern="[a-zA-Z]" required></label>
-                <label>Postcode en plaats<input type="text" placeholder="2233AB" pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}" required><input type="text" placeholder="Amsterdam" pattern="[a-zA-Z]" required></label>
-                <label>Datum<input type="date" required></label>
-                <label class="non-required">Uw handtekening<input type="text"></label>
+                <div class="input-group">
+                    <label for="bsn">Burgerservicenummer/RSIN</label>
+                    <input type="text" id="bsn" name="bsn" placeholder="012345678" pattern="[0-9]{9}" maxlength="9" size="9" title="Vul een BSN met 9 cijfers in" required>
+                </div>
+
+                <div class="input-group">
+                   <label for="protocol-number" class="non-required">Protocolnummer (als de executeur ook notaris is)</label>
+                    <input type="text" id="protocol-number" name="protocol-number" placeholder="456" pattern="[0-9]{6}" maxlength="6" size="6" maxlength="6" title="Vul een protocol nummer met maximaal 6 cijfers"> 
+                </div>
+                
+                <div class="input-group">
+                    <label for="becon-number" class="non-required">Beconnummer van de adviseur</label>
+                    <input type="text" id="becon-number" name="becon-number" placeholder="123456" pattern="[0-9]{6}" maxlength="6" size="6" title="Vul een protocol nummer met 6 cijfers">
+                </div>
+                
+                <section class="group-inputs">
+                    <div class="input-group">
+                        <label for="first-letter">Voorletter(s)</label>
+                        <input type="text" id="first-letter" name="first-letter" placeholder="A" pattern="[a-zA-Z]{1,}" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="prefix">Tussenvoegsel(s)</label>
+                        <input type="text" id="prefix" name="prefix" placeholder="de" pattern="[a-zA-Z]{2,}" maxlength="5" size="5" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="surname">Achternaam</label>
+                        <input type="text" id="surname" name="surname" placeholder="Best" pattern="[a-zA-Z]{1,}" required>
+                    </div>
+                </section>
+
+                <label for="institution" class="non-required">Naam instelling (bijvoorbeeld een notariskantoor)</label>
+                <input id="institution" name="" type="text">
+
+                <section class="group-inputs">
+                    <div class="input-group">
+                        <label for="street">Straat</label>
+                        <input type="text" id="street" name="street" placeholder="Wibautstraat" pattern="[a-zA-Z]{1,}" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="number">Huisnummer</label>
+                        <input type="text" id="number" name="number" placeholder="11" pattern="[0-9]{1,}" required>
+                    </div>                    
+                    
+                    <div class="input-group">
+                        <label for="number-addition">Toevoeging</label>
+                        <input type="text" id="number-addition" name="number-addition" placeholder="B" pattern="[a-zA-Z]{1,}">
+                    </div>            
+                </section>
+                
+                <section class="group-inputs">
+                    <div class="input-group">
+                        <label for="postal-code">Postcode</label>
+                        <input type="text" id="postal-code" name="postal-code" placeholder="2233AB" pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}" size="6" maxlength="6" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="city">Plaats</label>
+                        <input type="text" id="city" name="city" placeholder="Amsterdam" pattern="[a-zA-Z]{2,}" required>
+                    </div>
+                </section>
+
+                <div class="input-group">
+                    <label for="date">Datum</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="signature" class="non-required">Uw handtekening</label>
+                    <input type="text" id="signature" name="signature">
+                </div>
+
             </fieldset>
         </fieldset>
         <button>Afronden</button>
