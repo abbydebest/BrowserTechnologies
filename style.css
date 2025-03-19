@@ -36,6 +36,10 @@
 
         /* Shades of grey */
         --grey: #070721;
+        --grey-100:#e4e5e8;
+        --grey-60: #9C9CA6;
+        --grey-75: #eaebee;
+        --grey-80: #cdcdd3;
 
         /* Feedback colours */
         --error-red: #DB0029;
@@ -45,6 +49,8 @@
         --text-link-light-blue: #0079D3;
         --hover-blue: #005CA0;
         --hover-yellow: #FFB519;
+
+        /* 🔗 SOURCE: https://www.ns.nl/platform/fundamentals/colours.html */
     
         /* Fonts */
         --NS-sans-regular: "NS Sans Regular", Arial, Helvetica, sans-serif;
@@ -53,6 +59,9 @@
         /* Font sizes */
         --text-size: 1em;
         --small-text: 0.875em;
+
+        /* Border */
+        --subtle-border: var(--grey-75);
 }
 
 /* /////////////////////////// */
@@ -87,6 +96,12 @@ small {
     font-size: var(--small-text);
 }
 
+button {
+    color: var(--white);
+    font-size: var(--text-size);
+    font-family: var(--NS-sans-regular);
+}
+
 /* 🪐 TEXT FORMATTING RESPONSIVE 🪐 */
 
 /* //////////////// */
@@ -97,9 +112,316 @@ body {
     height: 100dvh;
     width: 100dvw;
 
+    justify-items: center;
+
     font-family: var(--NS-sans-regular);
+    background-color: #f0f0f2;
 }
 
 /* ////////////////// */
 /* 🤠🤠🤠 HEADER 🤠🤠🤠 */
 /* ////////////////// */
+
+/* 🔗 SOURCE: https://www.ns.nl/platform/components/notification-bar.html */
+.notification {
+    background-color: var(--error-red);
+    box-shadow: inset 0 -.0625rem 0 0 rgba(0, 0, 0, .1);
+    color: #fff;
+    display: block;
+    margin: 0;
+    padding: .625rem 2rem .625rem 4.1875rem;
+    position: relative;
+
+    & p {
+        color: var(--white);
+    }
+}
+
+.notification img {
+    height: 2.1875rem;
+    width: 2.1875rem;
+
+    position: absolute;
+    left: 1.5625rem;
+    top: .3125rem;
+}
+
+.hero {
+    height: 30vh;
+    width: 100vw;
+
+    padding: 1rem;
+}
+
+/* ///////////////////////////// */
+/* 🥡🥡🥡 FIELDSET & LABELS 🥡🥡🥡 */
+/* ///////////////////////////// */
+
+fieldset {
+    margin: 1rem 0rem;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+label {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* ////////////////// */
+/* 🎀🎀🎀 INPUTS 🎀🎀🎀 */
+/* ////////////////// */
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    /* 🔗 SOURCE: https://www.ns.nl/platform/objects/form-elements.html */
+    border: .0625rem solid var(--grey-80);
+    border-radius: .25rem;
+    transition: all .2s cubic-bezier(.7,.27,.27,1);
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-color: #fff;
+    color: #003082;
+    font-weight: 700;
+    height: 2.8125rem;
+    line-height: 1.5625rem;
+    padding-left: .9375rem;
+    padding-right: .9375rem;
+    font-size: var(--text-size);
+
+    &::placeholder {
+        color: var(--grey-80);
+    }
+
+    &:hover {
+        border: .0625rem solid var(--grey-60);
+    }
+
+    &:focus {
+        box-shadow: 0 2px 28px rgba(0, 0, 0, .1);
+        transition: all .2s cubic-bezier(.7,.27,.27,1);
+    }
+
+    &:user-invalid {
+        border-bottom: none;
+        box-shadow: inset 0 -.15rem 0 var(--error-red) ;
+        /* border-bottom: .17rem solid var(--error-red); */
+    }
+
+    &:user-valid {
+        border-bottom: none;
+        box-shadow: inset 0 -.15rem 0 var(--succes-green) ;
+        /* border-bottom: .17rem solid var(--succes-green); */
+    }
+
+}
+
+label::before {
+    content: "*";
+    order: 2;
+}
+
+label.non-required::before {
+    content: "";
+}
+
+input[type="number"] {
+    width: 5rem;
+}
+
+input[type="radio"] {
+    --webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    margin: 0;
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    height: 1.25rem;
+    width: 1.25rem;
+
+    position: relative;
+
+    background: #fff;
+    border: .0625rem solid var(--grey-80);
+    border-radius: 50%;
+
+    transition: all .2s cubic-bezier(.7,.27,.27,1);
+
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    &:hover {
+        border: .0625rem solid var(--grey-60);
+    }
+
+    &::before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        /* position: absolute;
+        top: .125rem; */
+
+        display: none;
+        border-radius: 50%;
+        border: .1rem solid var(--light-blue);
+        /* box-shadow: 0 0 0 1px #0063d3, 0 2px 28px rgba(0, 0, 0, .1); */
+
+        transition: all .3s cubic-bezier(.7,.27,.27,1);
+        grid-area: 1/1;
+    }
+
+    &:focus::before {
+        display: block;
+    }
+
+    &::after {
+        content: "";
+        height: .625rem;
+        width: .625rem;
+        background-color: var(--succes-green);
+        display: block;
+        border-radius: 50%;
+        grid-area: 1/1;
+
+        transition: all .3s cubic-bezier(.7,.27,.27,1);
+        transform: scale(0);
+    }
+
+    &:checked::after {
+        transform: scale(1);
+    }
+
+    &:checked label {
+        color: var(--blue);
+    }
+
+    /* 🔗 SOURCE: https://www.ns.nl/platform/objects/form-radiobutton.html */
+}
+
+/* ///////////////// */
+/* 🍙🍙🍙 CARDS 🍙🍙🍙 */
+/* ///////////////// */
+
+fieldset.radio-as-button {
+        border: .0625rem solid var(--subtle-border);
+        border-radius: .75rem;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .03), 0 4px 8px rgba(0, 0, 0, .03), 0 8px 16px rgba(0, 0, 0, .03);
+
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+
+        display: grid;
+        grid-template-columns: 1fr 70% 1fr;
+        grid-template-rows: 1fr auto 1fr;
+        grid-column-gap: 1rem;
+        grid-row-gap: 1rem;
+        align-items: center;
+
+        transition-timing-function: cubic-bezier(0.2, 0.9, 0.4, 1);
+
+    &:hover {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .03), 0 4px 8px rgba(0, 0, 0, .03), 0 8px 16px rgba(0, 0, 0, .03);
+        border-bottom: .17rem solid var(--hover-yellow);
+        border-radius: 1rem;
+        inset: -4px;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        transition-timing-function: cubic-bezier(0.2, 0.9, 0.4, 1);
+        transform: scale(1.03);
+    }
+
+    /* &.radio-as-button::before {
+        content: "";
+        display: block;
+        box-shadow: 0 0 0 1px var(--grey-100)
+    } */
+
+}
+
+.situation {
+    grid-area: 1 / 2 / 2 / 4;
+}
+
+#executeur,
+#gemachtigde,
+#together,
+#solo {
+    grid-area: 2 / 1;
+
+    align-self: center;
+    justify-self: center;
+}
+
+.explanation {
+    grid-area: 2 / 2 / 3 / 4;
+}
+
+.amount-label {
+    grid-area: 3 / 2;
+    align-self: start;
+}
+
+#amount-of-people,
+#amount-of-people-gemachtigde,
+#amount-verkrijgers {
+    grid-area: 3 / 3;
+    display: block;
+    justify-self: end;
+}
+
+/* //////////////// */
+/* 💥💥💥 MAIN 💥💥💥 */
+/* //////////////// */
+
+main {
+    width: 75vw;
+}
+
+/* ////////////////// */
+/* 🛒🛒🛒 STEP 3 🛒🛒🛒 */
+/* ////////////////// */
+
+/* 3 Wat is uw rol en voor wie doet u aangifte? */
+
+.step-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* /////////////////// */
+/* 🥟🥟🥟 STEP 3A 🥟🥟🥟 */
+/* /////////////////// */
+
+/* 3a Geef aan welke situatie/rol voor u geld */
+
+button {
+    /* 🔗 SOURCE: https://www.ns.nl/platform/objects/button.html */
+    min-width: 7.5rem;
+    padding: .625rem 1.125rem;
+    position: relative;
+
+    background-color: #0063d3;
+    box-shadow: inset 0 -.125rem 0 #004ba0;
+    border: none;
+    border-radius: 4px;
+
+    display: inline-block;
+    line-height: 1.5625rem;
+
+    transition: box-shadow .15s ease-in-out;
+}
