@@ -72,4 +72,7 @@ function setupFormPersistence() {
 
 // Initialize form persistence when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', setupFormPersistence);
- 
+
+const extraText = document.querySelectorAll(".hide");
+
+document.getElementsByClassName("hide").hidden = true;

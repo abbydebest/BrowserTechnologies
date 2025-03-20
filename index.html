@@ -13,7 +13,7 @@
     <header>
         <section class="notification">
             <img src="./images/notification-bar-con.svg" alt="Klik voor meer informatie en/of uitleg">
-            <p>Let op dit is een nep formulier! Door het invullen van dit formulier doet u GEEN erfbelasting over 2023. Deze pagina is uitsluitend bedoeld ter illustratie van verdieping in HTML forms.</p>
+            <p>Let op dit is een nep formulier! Door het invullen van dit formulier doet u GEEN erfbelasting aangifte over 2023. Deze pagina is uitsluitend bedoeld ter illustratie van verdieping in HTML forms.</p>
         </section>
         <section class="hero">
             <h1>NS Erfbelasting aangifte</h1>
@@ -29,50 +29,51 @@
                 <legend><h3>3a Is er een executeur aangewezen?</h3></legend>
                 <!-- <legend>3a Geef aan welke situatie/rol voor u geld</legend> -->
 
-                <p>Er is een executeur aangewezen</p>
+                <!-- <p>Er is een executeur aangewezen</p> -->
                 <p>De overledene heeft in het testament een executeur aangewezen om de erfenis af te handelen.</p>
 
                 <fieldset class="radio-as-button">
-                    <label class="situation" for="executeur">Executeur</label>
-                    <input type="radio" id="executeur" name="taak-keuze" value="executeur" required>
+                    <label class="situation non-required" for="executeur">Executeur</label>
+                    <input type="radio" id="executeur" name="taak-keuze" value="executeur" title="Kies de situatie die voor u geld" required>
                     <p class="explanation">Als executeur moet u aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers). Lees de toelichting bij vraag 3a.</p>
                         
                     <label class="amount-label" for="amount-of-people">Geef aan voor hoeveel verkrijgers u aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.</label>
-                    <input type="number" id="amount-of-people" name="aantal-verkrijgers">
+                    <input type="number" id="amount-of-people" name="aantal-verkrijgers" title="Voer het totaal aantal verkrijgers in">
                 </fieldset>
                 
-                <p>Er is geen executeur aangewezen</p>
-                <p>De overledene heeft in het testament geen executeur aangewezen</p>
-
-                <p>Kies welke situatie/rol voor u geld</p>
+                <!-- <p>Er is geen executeur aangewezen</p> -->
+                <p>De overledene heeft in het testament geen executeur aangewezen. Kies welke situatie/rol voor u geld</p>
 
                 <fieldset class="radio-as-button">
-                    <label class="situation" for="gemachtigde">Gemachtigde</label>
-                    <input type="radio" id="gemachtigde" name="taak-keuze" value="gemachtigde" required>
+                    <label class="situation non-required" for="gemachtigde">Gemachtigde</label>
+                    <input type="radio" id="gemachtigde" name="taak-keuze" value="gemachtigde" title="Kies de situatie die voor u geld" required>
                     <p class="explanation">U bent gemachtigd om aangifte te doen voor meerdere personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).</p>
 
                     <label class="amount-label" for="amount-of-people-gemachtigde">Geef aan voor hoeveel verkrijgers u aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.</label>
-                    <input type="number" id="amount-of-people-gemachtigde" name="aantal-verkrijgers-gemachtigde">
-                    <label><input type="checkbox" name="no-heir">Ik ben geen erfgenaam/verkrijger</label>
+                    <input type="number" id="amount-of-people-gemachtigde" name="aantal-verkrijgers-gemachtigde" title="Voer het totaal aantal verkrijgers in">
+                    <label><input type="checkbox" name="no-heir" class="non-required">Ik ben geen erfgenaam/verkrijger</label>
                 </fieldset>
                                 
                 <fieldset class="radio-as-button">
-                    <label class="situation" for="together">Met andere erfgenamen</label>
-                    <input type="radio" id="together" name="taak-keuze" value="geen van beiden" required>
+                    <label class="situation non-required" for="together">Met andere erfgenamen</label>
+                    <input type="radio" id="together" name="taak-keuze" value="geen van beiden" title="Kies de situatie die voor u geld" required>
                     <p class="explanation">U bent erfgenaam en doet met andere erfgenamen aangifte en anderen alleen voor zichzelf</p>
                     
                     <label class="amount-label" for="amount-verkrijgers">Geef aan met/voor hoeveel verkrijgers u samen aangifte doet.</label>
-                    <input type="number" id="amount-verkrijgers" name="aantal-verkrijgers-erfgenaam">
+                    <input type="number" id="amount-verkrijgers" name="aantal-verkrijgers-erfgenaam" title="Voer het aantal verkrijgers in">
                 </fieldset>
 
                 <fieldset class="radio-as-button">
-                    <label class="situation" for="solo">Voor mijzelf</label>
-                    <input type="radio" id="solo" name="taak-keuze" value="alleen voor mijzelf" required>
+                    <label class="situation non-required" for="solo">Voor mijzelf</label>
+                    <input type="radio" id="solo" name="taak-keuze" value="alleen voor mijzelf" title="Kies de situatie die voor u geld" required>
                     <p class="explanation">U bent erfgenaam en doet alleen voor uzelf aangifte</p>
                 </fieldset>
 
             </fieldset>
 
+            <!-- /////////////////////////// -->
+            <!-- 📦📦📦 STEP 3B WHO NOT 📦📦📦 -->
+            <!-- /////////////////////////// -->
             <fieldset class="step-3b-who-not">
                 <legend><h3>3b Voor wie doet u geen aangifte?</h3></legend>
                 <p>Niet van toepassing als:</p>
@@ -82,13 +83,16 @@
                 </ol>
 
                 <fieldset>
-                    <legend>Zijn er verkrijgers waarvoor u geen aangifte doet?</legend>
-                    <label><input type="radio" name="excluded-persons" value="Nee, ga naar vraag 3c">Nee, ga naar vraag 3c</label>
-                    <label><input type="radio" name="excluded-persons" value="Nee, ga naar vraag 3c">Ja, vul hieronder de gegevens in van de verkrijgers waarvoor u geen aangifte doet.
+                    <legend class="non-required">Zijn er verkrijgers waarvoor u geen aangifte doet?</legend>
+                    <label class="non-required"><input type="radio" name="excluded-persons" value="Nee, ga naar vraag 3c" >Nee <span class="hide">, ga naar vraag 3c</span></label>
+                    <label class="non-required"><input type="radio" name="excluded-persons" value="Ja,  vul hieronder de gegevens in van de verkrijgers waarvoor u geen aangifte doet." >Ja, vul hieronder de gegevens in van de verkrijgers waarvoor u geen aangifte doet.
                         Gaat het om een instelling? Vul dan de naam van de instelling in bij ‘achternaam’.
                         Het invullen van een bsn is niet verplicht, maar wel handig voor ons.</label>
                 </fieldset>
 
+                <!-- /////////////////////// -->
+                <!-- 🥟🥟🥟 VERKRIJGERS 🥟🥟🥟 -->
+                <!-- /////////////////////// -->
                 <fieldset class="verkrijger">
                     <legend>Verkrijger 1</legend>
                     <div class="input-group">
@@ -99,12 +103,12 @@
                     <section class="group-inputs">
                         <div class="input-group">
                             <label for="first-letter">Voorletter(s)</label>
-                            <input type="text" id="first-letter" name="first-letter" placeholder="A" pattern="[a-zA-Z]{1,}" required>
+                            <input type="text" id="first-letter" name="first-letter" placeholder="A" pattern="[a-zA-Z]{1,}" title="Vul een of meerdere voorletters in" required>
                         </div>
                         
                         <div class="input-group">
                             <label for="prefix">Tussenvoegsel(s)</label>
-                            <input type="text" id="prefix" name="prefix" placeholder="de" pattern="[a-zA-Z]{2,}" maxlength="5" size="5" required>
+                            <input type="text" id="prefix" name="prefix" placeholder="de" pattern="[a-zA-Z]{2,}" maxlength="5" size="5" title="Vul een tussenvoegsel met minimaal twee karakters in" required>
                         </div>
                         
                         <div class="input-group">
@@ -112,21 +116,29 @@
                             <input type="text" id="surname" name="surname" placeholder="Best" pattern="[a-zA-Z]{1,}" required>
                         </div>
                     </section>
+                    
+                    <!-- 🎱 Extra questions -->
+                    <section class="assets">
+                        <p>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele vermogen?</p>
+                        <label for="not-all-assets" class="non-required"><input type="radio" id="not-all-assets" name="assets" value="Nee, deze krijgt niet het hele vermogen" required>Nee</label>
+                        <label for="all-assets" class="non-required"><input type="radio" id="all-assets" name="assets" value="Ja, deze krijgt het hele vermogen" required>Ja</label>
+                    </section>
 
-                    <fieldset>
-                        <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele vermogen?</legend>
-                        
-                        <label class="" for="not-all-assets"><input type="radio" id="not-all-assets" name="assets" value="Nee, deze krijgt niet het hele vermogen" required>Nee</label>
-                        <label class="" for="all-assets"><input type="radio" id="all-assets" name="assets" value="Ja, deze krijgt het hele vermogen" required>Ja</label>
-                    </fieldset>
+                    <section class="legitimate-portion">
+                        <p>Doet deze verkrijger een beroep op diens legitieme portie(wettelijke erfdeel)?</p>
+                        <label for="not-all-assets" class="non-required"><input type="radio" id="not-all-assets" name="assets" value="Nee, deze doet geen beroep op zijn/haar legitieme portie" required>Nee</label>
+                        <label for="all-assets" class="non-required"><input type="radio" id="all-assets" name="assets" value="Ja, deze doet beroep op zijn/haar legitieme portie" required>Ja</label>
+                    </section>
 
                 </fieldset>
+                <!-- 🍋 Button -->
+                <button class="secondary-button">Nieuwe verkrijger</button>
             </fieldset>
 
             <fieldset>
                 <legend><h3>3c Naar wie wilt u dat wij de aanslag erfbelasting sturen?</h3></legend>
-                <label><input type="radio" name="receipient-choice" value="Stuur naar iedere verkrijger">Stuur naar iedere verkrijger van (een deel van) de erfenis een eigen belastingaanslag.</label>
-                <label><input type="radio" name="receipient-choice" value="Stuur naar iedere verkrijger">Stuur de belastingaanslag(en) naar de executeur of naar de erfgenaam die ook namens andere personen en/of instellingen
+                <label class="non-required"><input type="radio" name="receipient-choice" value="Stuur naar iedere verkrijger" checked required>Stuur naar iedere verkrijger van (een deel van) de erfenis een eigen belastingaanslag.</label>
+                <label class="non-required"><input type="radio" name="receipient-choice" value="Stuur naar persoon die aangifte heeft gedaan" required>Stuur de belastingaanslag(en) naar de executeur of naar de erfgenaam die ook namens andere personen en/of instellingen
                     die iets krijgen uit de nalatenschap (verkrijgers) aangifte heeft gedaan; dit mag ook de gemachtigde zijn.
                     Wij sturen de aanslag(en) naar het adres dat u bij vraag 2 hebt ingevuld.</label>
             </fieldset>
@@ -141,7 +153,7 @@
                 </div>
 
                 <div class="input-group">
-                   <label for="protocol-number" class="non-required">Protocolnummer (als de executeur ook notaris is)</label>
+                    <label for="protocol-number" class="non-required">Protocolnummer (als de executeur ook notaris is)</label>
                     <input type="text" id="protocol-number" name="protocol-number" placeholder="456" pattern="[0-9]{6}" maxlength="6" size="6" maxlength="6" title="Vul een protocol nummer met maximaal 6 cijfers"> 
                 </div>
                 
@@ -153,32 +165,32 @@
                 <section class="group-inputs">
                     <div class="input-group">
                         <label for="first-letter">Voorletter(s)</label>
-                        <input type="text" id="first-letter" name="first-letter" placeholder="A" pattern="[a-zA-Z]{1,}" required>
+                        <input type="text" id="first-letter" name="first-letter" placeholder="A" pattern="[a-zA-Z]{1,}" title="Vul een of meerdere voorletters in" required>
                     </div>
                     
                     <div class="input-group">
                         <label for="prefix">Tussenvoegsel(s)</label>
-                        <input type="text" id="prefix" name="prefix" placeholder="de" pattern="[a-zA-Z]{2,}" maxlength="5" size="5" required>
+                        <input type="text" id="prefix" name="prefix" placeholder="de" pattern="[a-zA-Z]{2,}" maxlength="5" size="5" title="Vul een tussenvoegsel met minimaal twee karakters in" required>
                     </div>
                     
                     <div class="input-group">
                         <label for="surname">Achternaam</label>
-                        <input type="text" id="surname" name="surname" placeholder="Best" pattern="[a-zA-Z]{1,}" required>
+                        <input type="text" id="surname" name="surname" placeholder="Best" pattern="[a-zA-Z]{1,}" title="Vul een achternaam met minimaal één karakter in" required>
                     </div>
                 </section>
 
                 <label for="institution" class="non-required">Naam instelling (bijvoorbeeld een notariskantoor)</label>
-                <input id="institution" name="" type="text">
+                <input id="institution" name="institution" type="text">
 
                 <section class="group-inputs">
-                    <div class="input-group">
+                    <div class="input-group postal-code">
                         <label for="street">Straat</label>
-                        <input type="text" id="street" name="street" placeholder="Wibautstraat" pattern="[a-zA-Z]{1,}" required>
+                        <input type="text" id="street" name="street" placeholder="Wibautstraat" pattern="[a-zA-Z]{1,}" title="Vul een straatnaam in bestaande uit letters en met minimaal twee karakters" required>
                     </div>
                     
                     <div class="input-group">
                         <label for="number">Huisnummer</label>
-                        <input type="text" id="number" name="number" placeholder="11" pattern="[0-9]{1,}" required>
+                        <input type="text" id="number" name="number" placeholder="11" pattern="[0-9]{1,}" title="Vul een huisnummer met minimaal één cijfer in" required>
                     </div>                    
                     
                     <div class="input-group">
@@ -190,18 +202,18 @@
                 <section class="group-inputs">
                     <div class="input-group">
                         <label for="postal-code">Postcode</label>
-                        <input type="text" id="postal-code" name="postal-code" placeholder="2233AB" pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}" size="6" maxlength="6" required>
+                        <input type="text" id="postal-code" name="postal-code" placeholder="2233AB" pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}" size="6" maxlength="6" title="Vul een postcode in met vier cijfers en twee letters" required>
                     </div>
 
                     <div class="input-group">
                         <label for="city">Plaats</label>
-                        <input type="text" id="city" name="city" placeholder="Amsterdam" pattern="[a-zA-Z]{2,}" required>
+                        <input type="text" id="city" name="city" placeholder="Amsterdam" pattern="[a-zA-Z]{2,}" title="Vul een plaats in met minimaal twee karakters" required>
                     </div>
                 </section>
 
                 <div class="input-group">
                     <label for="date">Datum</label>
-                    <input type="date" id="date" name="date" required>
+                    <input type="date" id="date" name="date" title="Vul een complete datum in" required>
                 </div>
 
                 <div class="input-group">
@@ -211,7 +223,7 @@
 
             </fieldset>
         </fieldset>
-        <button>Afronden</button>
+        <button class="primary-button">Afronden</button>
     </form>
     </main>
     <script src="script.js"></script>
