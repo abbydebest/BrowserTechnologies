@@ -10,6 +10,11 @@
 	<link rel="icon" type="image/svg+xml" href="images/">
 </head>
 <body>
+
+    <!-- ////////////////// -->
+    <!-- 🤠🤠🤠 HEADER 🤠🤠🤠 -->
+    <!-- ////////////////// -->
+
     <header>
         <section class="notification">
             <img src="./images/notification-bar-con.svg" alt="Klik voor meer informatie en/of uitleg">
@@ -20,15 +25,30 @@
             <h2>Welkom bij de NS Erfbelasting aangifte</h2>
         </section>
     </header>
+
+    <!-- //////////////// -->
+    <!-- 💥💥💥 MAIN 💥💥💥 -->
+    <!-- //////////////// -->
+
     <main>
     <form action="">
+
+        <!-- ////////////////// -->
+        <!-- 🛒🛒🛒 STEP 3 🛒🛒🛒 -->
+        <!-- ////////////////// -->
+        
         <fieldset class="step-3-for-who">
             <legend><h3>3 Wat is uw rol en voor wie doet u aangifte?</h3></legend>
             
+            <!-- ///////////////////////////// -->
+            <!-- 🥟🥟🥟 STEP 3A SITUATION 🥟🥟🥟 -->
+            <!-- ///////////////////////////// -->
+
             <fieldset class="step-3a-executeur">
                 <legend><h3>3a Is er een executeur aangewezen?</h3></legend>
                 <!-- <legend>3a Geef aan welke situatie/rol voor u geld</legend> -->
 
+                <!-- 🥟 EXECUTEUR -->
                 <!-- <p>Er is een executeur aangewezen</p> -->
                 <p>De overledene heeft in het testament een executeur aangewezen om de erfenis af te handelen.</p>
 
@@ -36,33 +56,42 @@
                     <label class="situation non-required" for="executeur">Executeur</label>
                     <input type="radio" id="executeur" name="taak-keuze" value="executeur" title="Kies de situatie die voor u geld" required>
                     <p class="explanation">Als executeur moet u aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers). Lees de toelichting bij vraag 3a.</p>
-                        
+                    
+                    <!-- 👋🏼 AMOUNT OF PEOPLE -->
                     <label class="amount-label" for="amount-of-people">Geef aan voor hoeveel verkrijgers u aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.</label>
                     <input type="number" id="amount-of-people" name="aantal-verkrijgers" title="Voer het totaal aantal verkrijgers in">
                 </fieldset>
                 
+                <!-- 🥟 NO EXECUTEUR -->
                 <!-- <p>Er is geen executeur aangewezen</p> -->
                 <p>De overledene heeft in het testament geen executeur aangewezen. Kies welke situatie/rol voor u geld</p>
 
+                <!-- 🔖 SITUATION CARDS -->
+
+                <!-- 🔖 GEMACHTIGDE -->
                 <fieldset class="radio-as-button">
                     <label class="situation non-required" for="gemachtigde">Gemachtigde</label>
                     <input type="radio" id="gemachtigde" name="taak-keuze" value="gemachtigde" title="Kies de situatie die voor u geld" required>
                     <p class="explanation">U bent gemachtigd om aangifte te doen voor meerdere personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).</p>
 
+                    <!-- 👋🏼 AMOUNT OF PEOPLE -->
                     <label class="amount-label" for="amount-of-people-gemachtigde">Geef aan voor hoeveel verkrijgers u aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.</label>
                     <input type="number" id="amount-of-people-gemachtigde" name="aantal-verkrijgers-gemachtigde" title="Voer het totaal aantal verkrijgers in">
                     <label><input type="checkbox" name="no-heir" class="non-required">Ik ben geen erfgenaam/verkrijger</label>
                 </fieldset>
-                                
+                
+                <!-- 🔖 TOGETHER -->
                 <fieldset class="radio-as-button">
                     <label class="situation non-required" for="together">Met andere erfgenamen</label>
                     <input type="radio" id="together" name="taak-keuze" value="geen van beiden" title="Kies de situatie die voor u geld" required>
                     <p class="explanation">U bent erfgenaam en doet met andere erfgenamen aangifte en anderen alleen voor zichzelf</p>
                     
+                    <!-- 👋🏼 AMOUNT OF PEOPLE -->
                     <label class="amount-label" for="amount-verkrijgers">Geef aan met/voor hoeveel verkrijgers u samen aangifte doet.</label>
                     <input type="number" id="amount-verkrijgers" name="aantal-verkrijgers-erfgenaam" title="Voer het aantal verkrijgers in">
                 </fieldset>
 
+                <!-- 🔖 SOLO -->
                 <fieldset class="radio-as-button">
                     <label class="situation non-required" for="solo">Voor mijzelf</label>
                     <input type="radio" id="solo" name="taak-keuze" value="alleen voor mijzelf" title="Kies de situatie die voor u geld" required>
@@ -75,13 +104,15 @@
             <!-- 📦📦📦 STEP 3B WHO NOT 📦📦📦 -->
             <!-- /////////////////////////// -->
             <fieldset class="step-3b-who-not">
+                <!-- Een van de twee -->
                 <legend><h3>3b Voor wie doet u geen aangifte?</h3></legend>
                 <p>Niet van toepassing als:</p>
-                <ol>
+                <ul>
                     <li>U executeur bent</li>
                     <li>U alleen voor uzelf aangifte doet en u tevens de enige verkrijger bent</li>
-                </ol>
+                </ul>
 
+                <!-- 📦 EXCLUDED QUESTION -->
                 <fieldset>
                     <legend class="non-required">Zijn er verkrijgers waarvoor u geen aangifte doet?</legend>
                     <label class="non-required"><input type="radio" name="excluded-persons" value="Nee, ga naar vraag 3c" >Nee <span class="hide">, ga naar vraag 3c</span></label>
@@ -91,7 +122,7 @@
                 </fieldset>
 
                 <!-- /////////////////////// -->
-                <!-- 🥟🥟🥟 VERKRIJGERS 🥟🥟🥟 -->
+                <!-- 🎱🎱🎱 VERKRIJGERS 🎱🎱🎱 -->
                 <!-- /////////////////////// -->
                 <fieldset class="verkrijger">
                     <legend>Verkrijger 1</legend>
@@ -100,6 +131,7 @@
                         <input type="text" id="bsn" name="bsn" placeholder="012345678" pattern="[0-9]{9}" maxlength="9" size="9" title="Vul een BSN met 9 cijfers in" required>
                     </div>
 
+                    <!-- 🎱 VERKRIJGER INFO -->
                     <section class="group-inputs">
                         <div class="input-group">
                             <label for="first-letter">Voorletter(s)</label>
@@ -117,7 +149,7 @@
                         </div>
                     </section>
                     
-                    <!-- 🎱 Extra questions -->
+                    <!-- 🎱 EXTRA QUESTIONS -->
                     <section class="assets">
                         <p>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele vermogen?</p>
                         <label for="not-all-assets" class="non-required"><input type="radio" id="not-all-assets" name="assets" value="Nee, deze krijgt niet het hele vermogen" required>Nee</label>
@@ -131,9 +163,13 @@
                     </section>
 
                 </fieldset>
-                <!-- 🍋 Button -->
+                <!-- 🍋 SECONDARY ADD PERSON BUTTON -->
                 <button class="secondary-button">Nieuwe verkrijger</button>
             </fieldset>
+            
+            <!-- ////////////////////////////// -->
+            <!-- 🫒🫒🫒 STEP 3C SEND TO WHO 🫒🫒🫒 -->
+            <!-- ////////////////////////////// -->
 
             <fieldset>
                 <legend><h3>3c Naar wie wilt u dat wij de aanslag erfbelasting sturen?</h3></legend>
@@ -143,25 +179,33 @@
                     Wij sturen de aanslag(en) naar het adres dat u bij vraag 2 hebt ingevuld.</label>
             </fieldset>
 
+            <!-- ///////////////////////////////// -->
+            <!-- 💗💗💗 STEP 3D FORM AND INFO 💗💗💗 -->
+            <!-- ///////////////////////////////// -->
+
             <fieldset>
                 <legend><h3>3d Ondertekening door executeur of gemachtigde</h3></legend>
                 <p>Bent u executeur of gemachtigde? Vul uw gegevens hieronder in en onderteken de aangifte voor de verkrijgers waarvoor u aangifte doet.</p>
 
+                <!-- 💗 BSN -->
                 <div class="input-group">
                     <label for="bsn">Burgerservicenummer/RSIN</label>
                     <input type="text" id="bsn" name="bsn" placeholder="012345678" pattern="[0-9]{9}" maxlength="9" size="9" title="Vul een BSN met 9 cijfers in" required>
                 </div>
 
+                <!-- 💗 PROTOCOL NUMBER -->
                 <div class="input-group">
                     <label for="protocol-number" class="non-required">Protocolnummer (als de executeur ook notaris is)</label>
                     <input type="text" id="protocol-number" name="protocol-number" placeholder="456" pattern="[0-9]{6}" maxlength="6" size="6" maxlength="6" title="Vul een protocol nummer met maximaal 6 cijfers"> 
                 </div>
                 
+                <!-- 💗 BECON NUMBER -->
                 <div class="input-group">
                     <label for="becon-number" class="non-required">Beconnummer van de adviseur</label>
                     <input type="text" id="becon-number" name="becon-number" placeholder="123456" pattern="[0-9]{6}" maxlength="6" size="6" title="Vul een protocol nummer met 6 cijfers">
                 </div>
                 
+                <!-- 💗 NAME -->
                 <section class="group-inputs">
                     <div class="input-group">
                         <label for="first-letter">Voorletter(s)</label>
@@ -179,9 +223,11 @@
                     </div>
                 </section>
 
+                <!-- 💗 INSTITUITON -->
                 <label for="institution" class="non-required">Naam instelling (bijvoorbeeld een notariskantoor)</label>
                 <input id="institution" name="institution" type="text">
 
+                <!-- 💗 HOUSE -->
                 <section class="group-inputs">
                     <div class="input-group postal-code">
                         <label for="street">Straat</label>
@@ -199,6 +245,7 @@
                     </div>            
                 </section>
                 
+                <!-- 💗 PROTOCOL NUMBER -->
                 <section class="group-inputs">
                     <div class="input-group">
                         <label for="postal-code">Postcode</label>
