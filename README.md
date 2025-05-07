@@ -1,7 +1,7 @@
 # Browser technologies
 
 ## Introduction
-For this assignemnt we had to rebuild a PDF version of a tax file into an interactive website. With a focus on usability on all sorts of devices and browsers.
+For this assignment we had to rebuild a PDF version of a tax file into an interactive website. With a focus on usability on all sorts of devices and browsers.
 
 # 🫶🏼 Week 1
 
