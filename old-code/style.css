@@ -43,8 +43,6 @@
         /* Feedback colours */
         --error-red: #DB0029;
         --succes-green: #009A42;
-        --selected-blue: #ebf5ff;
-        --card-white: var(--white);
 
         /* Link & hover colours */
         --text-link-light-blue: #0079D3;
@@ -65,10 +63,6 @@
         --subtle-border: var(--grey-75);
 }
 
-/* html:has([value="executeur"]:checked) {
-        background-color: var(--selected-blue);
-} */
-
 /* /////////////////////////// */
 /* 🪐🪐🪐 TEXT FORMATTING 🪐🪐🪐 */
 /* /////////////////////////// */
@@ -77,6 +71,7 @@
 h1 {
     color: var(--blue);
     font-size: clamp(1.75rem, 1.1215rem + 3.5912vw, 5rem);;
+
     font-family: var(--NS-sans-bold);
 }
 
@@ -88,7 +83,6 @@ h2 {
 h3 {
     color: var(--blue);
     font-size: clamp(1.25rem, 1.2017rem + 0.2762vw, 1.5rem);
-    margin-bottom: 1rem;
 }
 
 h3 + h3 {
@@ -99,6 +93,10 @@ p {
     color: var(--grey);
     font-size: var(--text-size);
 }
+
+/* legend {
+
+} */
 
 small {
     color: var(--grey);
@@ -176,8 +174,8 @@ button {
 /* //////////////// */
 
 body {
-    height: 100%;
-    width: 100vw;
+    height: 100dvh;
+    width: 100dvw;
 
     justify-items: center;
 
@@ -220,14 +218,6 @@ body {
     padding: 1rem;
 }
 
-/* //////////////// */
-/* 💥💥💥 MAIN 💥💥💥 */
-/* //////////////// */
-
-main {
-    width: 50vw;
-}
-
 /* ///////////////////////////// */
 /* 🥡🥡🥡 FIELDSET & LABELS 🥡🥡🥡 */
 /* ///////////////////////////// */
@@ -240,85 +230,30 @@ fieldset {
     gap: 2rem;
 }
 
-.amount-of-people,
-.choose-situation,
-.excluded-question,
-.verkrijger {
-    legend {
-        color: var(--blue);
-        margin-bottom: 1rem;
-        font-family: var(--NS-sans-bold);
-    }
-}
-
 .group-inputs {
     display: flex;
     flex-direction: row;
     align-items: start;
+    /* justify-content: space-between; */
     gap: 1rem;
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
+    /* min-width: 14rem; */
     gap: 1rem;
 
     &:first-of-type {
         min-width: 14rem;
     }
-
-    label {
-        color: var(--blue);
-        font-family: var(--NS-sans-bold);
-    }
-}
-
-#amount-verkrijgers {
-    margin-left: auto;
-}
-
-.situation {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    border: .0625rem solid var(--subtle-border);
-    border-radius: .75rem;
-    background-color: var(--card-white);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .03), 0 4px 8px rgba(0, 0, 0, .03), 0 8px 16px rgba(0, 0, 0, .03);
-
-    width: 100%;
-    height: auto;
-    padding: 1.5rem 1.5rem;
-
-    transition-duration: 0.3s;
-    transition-timing-function: cubic-bezier(0.2, 0.9, 0.4, 1);
-
-    &:hover {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, .03), 0 4px 8px rgba(0, 0, 0, .03), 0 8px 16px rgba(0, 0, 0, .03);
-        border-bottom: none;
-        box-shadow: inset 0 -.15rem 0 var(--hover-yellow) ;
-        border-radius: 1rem;
-        inset: -4px;
-        cursor: pointer;
-        transition-duration: 0.3s;
-        transition-timing-function: cubic-bezier(0.2, 0.9, 0.4, 1);
-        transform: scale(1.03);
-    }
-
-}
-
-.label-container {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    width: fit-content;
-    flex-grow: 1;
 }
 
 label {
     display: flex;
-    max-width: 90%;
+    gap: .5rem;
+    align-items: center;
+    width: fit-content;
 }
 
 /* ////////////////// */
@@ -459,6 +394,15 @@ input[type="radio"] {
 
     }
 
+    /* If radio is checked change color of another element */
+    /* &:checked + .radio-as-button {
+        background-color: var(--blue);
+    }
+
+    &:checked .radio-as-button .situation {
+        color: var(--blue);
+    } */
+
     /* 🔗 SOURCE: https://www.ns.nl/platform/objects/form-radiobutton.html */
 }
 
@@ -501,9 +445,43 @@ fieldset.radio-as-button {
 
 }
 
+.situation {
+    grid-area: 1 / 2 / 2 / 4;
+}
+
+#executeur,
+#gemachtigde,
+#together,
+#solo {
+    grid-area: 2 / 1;
+
+    align-self: center;
+    justify-self: center;
+}
+
 .explanation {
-    width: 92.5%;
-    margin-left: auto;
+    grid-area: 2 / 2 / 3 / 4;
+}
+
+.amount-label {
+    grid-area: 3 / 2;
+    align-self: start;
+}
+
+#amount-of-people,
+#amount-of-people-gemachtigde,
+#amount-verkrijgers {
+    grid-area: 3 / 3;
+    display: block;
+    justify-self: end;
+}
+
+/* //////////////// */
+/* 💥💥💥 MAIN 💥💥💥 */
+/* //////////////// */
+
+main {
+    width: 50vw;
 }
 
 /* ////////////////// */
@@ -524,34 +502,9 @@ fieldset.radio-as-button {
 
 /* 3a Geef aan welke situatie/rol voor u geld */
 
-.amount-of-people {
-    /* display: none; */
-    display: flex;
-    flex-direction: row;
-    width: 92.5%;
-    flex-wrap: nowrap;
-    margin-left: auto;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-.amount-label {
-    align-items: start;
-}
-
-
-.choose-situation {
-    /* display: none; */
-}
-
 /* /////////////////////////// */
 /* 📦📦📦 STEP 3B WHO NOT 📦📦📦 */
 /* /////////////////////////// */
-
-ul {
-    margin: 0 0 0 1rem;
-}
 
 .verkrijger {
     border: .0625rem solid var(--subtle-border);
@@ -567,25 +520,20 @@ ul {
     margin-top: 1rem;
     padding: 4rem 2rem 2rem 2rem;
 
-    legend.verkrijger-title {
-        position: absolute;
+    & legend {
         top: 1.5rem;
+        position: absolute;
     }
 }
 
-.extra-info {
-    display: flex;
-    flex-direction: row;
-}
-
-.not-all-assets,
-.all-assets,
-.no-legitimate-portion,
+.assets,
 .legitimate-portion {
-    width: auto;
+    display: flex;
+    gap: 2rem;
+    /* justify-content: space-between; */
 
-    input {
-        margin-right: 1rem;
+    & p {
+        max-width: 30vw;
     }
 }
 
@@ -596,7 +544,3 @@ ul {
 /* ///////////////////////////////// */
 /* 💗💗💗 STEP 3D FORM AND INFO 💗💗💗 */
 /* ///////////////////////////////// */
-
-.hide {
-    display: none;
-}

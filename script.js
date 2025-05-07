@@ -70,9 +70,118 @@ function setupFormPersistence() {
     loadFormData();
 }
 
+// Function to add a new verkrijger fieldset
+function addNewVerkrijger() {
+    // Find the original verkrijger fieldset
+    const originalVerkrijger = document.querySelector('.verkrijger');
+    
+    // Clone the verkrijger fieldset
+    const newVerkrijger = originalVerkrijger.cloneNode(true);
+    
+    // Get the count of existing verkrijgers to number the new one
+    const verkrijgerCount = document.querySelectorAll('.verkrijger').length + 1;
+    
+    // Update the legend title
+    newVerkrijger.querySelector('.verkrijger-title').textContent = `Verkrijger ${verkrijgerCount}`;
+    
+    // Clear input values in the clone
+    const inputs = newVerkrijger.querySelectorAll('input');
+    inputs.forEach(input => {
+        if (input.type === 'radio') {
+            input.checked = false;
+        } else {
+            input.value = '';
+        }
+        
+        // Update IDs and names to make them unique
+        const oldId = input.id;
+        if (oldId) {
+            const newId = `${oldId}-v${verkrijgerCount}`;
+            input.id = newId;
+            
+            // Update associated labels
+            const label = newVerkrijger.querySelector(`label[for="${oldId}"]`);
+            if (label) {
+                label.setAttribute('for', newId);
+            }
+        }
+    });
+    
+    // Insert the new verkrijger before the "Nieuwe verkrijger" button
+    const addButton = document.querySelector('.secondary-button');
+    addButton.parentNode.insertBefore(newVerkrijger, addButton);
+    
+    // Apply form persistence to new inputs
+    setupInputListeners(newVerkrijger);
+}
+
+// Function to set up input listeners for a specific element
+function setupInputListeners(element) {
+    const inputs = element.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.addEventListener('input', saveFormData);
+        if (input.type === 'radio') {
+            input.addEventListener('change', saveFormData);
+        }
+    });
+}
+
 // Initialize form persistence when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', setupFormPersistence);
+document.addEventListener('DOMContentLoaded', function() {
+    setupFormPersistence();
+    
+    // Add click event listener to the "Nieuwe verkrijger" button
+    const addButton = document.querySelector('.secondary-button');
+    if (addButton) {
+        addButton.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent form submission
+            addNewVerkrijger();
+        });
+    }
 
-const extraText = document.querySelectorAll(".hide");
 
-document.getElementsByClassName("hide").hidden = true;
+    // Get both radio buttons
+    const radioExecuteur = document.getElementById("executeur");
+    const radioGeenExecuteur = document.getElementById("geen-executeur");
+    
+    // Get the amount of people fieldset
+    const amountOfPeople = document.getElementById("executeur-amount-of-people");
+    const chooseSituation = document.querySelector(".choose-situation");
+    
+    // Add event listener for the executeur radio button
+    radioExecuteur.addEventListener('change', function() {
+        console.log("Executeur selected");
+        if (this.checked) {
+            console.log("Showing amount of people");
+            amountOfPeople.classList.remove("hide");
+            chooseSituation.classList.add("hide");
+        }
+    });
+    
+    // Add event listener for the geen-executeur radio button
+    radioGeenExecuteur.addEventListener('change', function() {
+        console.log("Geen executeur selected");
+        if (this.checked) {
+            console.log("Hiding amount of people");
+            amountOfPeople.classList.add("hide");
+            chooseSituation.classList.remove("hide");
+        }
+    });
+    
+    // Initial state setup - hide if executeur is not checked
+    if (!radioExecuteur.checked) {
+        amountOfPeople.classList.add("hide");
+    } else {
+        amountOfPeople.classList.remove("hide");
+    }
+
+    if (!radioGeenExecuteur.checked) {
+        chooseSituation.classList.add("hide");
+    }
+});
+
+
+
+// document.getElementsByClassName("hide").hidden = true;
+
+
